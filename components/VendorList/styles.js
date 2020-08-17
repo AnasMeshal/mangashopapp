@@ -1,15 +1,31 @@
 //Styled components
 import styled from "styled-components";
 
-export const ListWrapper = styled.div`
-  display: flex;
+export const BackgorundImage = styled.ImageBackground`
+  width: 100%;
+  height: 100%;
   justify-content: center;
-  flex-wrap: Wrap;
-  margin-bottom: 2vh;
+  align-items: center;
 `;
 
-export const SearchWrapperAdd = styled.div`
+export const ListWrapper = styled.View`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  width: 110%;
+  height: 40%;
 `;
+
+// export const TitleWrapper = styled.View`
+//   margin-top: 20px;
+//   justify-content: center;
+//   align-items: center;
+//   width: 100%;
+//   background-color: #ffe4c4;
+// `;
+
+// export const Title = styled.Text`
+//   font-size: 40px;
+//   color: black;
+// `;

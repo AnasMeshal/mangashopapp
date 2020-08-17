@@ -1,9 +1,11 @@
 //Styled components
 import styled from "styled-components";
 
-export const ListWrapper = styled.div`
+export const ListWrapper = styled.View`
   display: flex;
+  width: 100%;
   justify-content: center;
-  flex-wrap: Wrap;
-  margin-bottom: 2vh;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
 `;

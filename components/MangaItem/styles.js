@@ -1,41 +1,38 @@
 //Styled components
 import styled from "styled-components";
 
-export const ItemWrapper = styled.div`
-  display: flex;
+export const ItemWrapper = styled.View`
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  height: 20%
   text-align: center;
-  justify-content: center;
-  border: ${({ theme }) => theme.borderColor} solid 3px;
-  margin: 4px;
-  border-radius: 10px;
+  align-items: center;
+  border: ${({ theme }) => theme.borderColor} solid 1px;
   background: ${({ theme }) => theme.mainColor};
 
-  p {
-    color: ${({ theme }) => theme.textColor};
-    margin-top: 1em;
-    font-weight: Bolder;
-    text-align: center;
-    font-size: 1.5em;
-    :hover {
-      cursor: default;
-    }
-  }
-
-  .item-price {
-    color: #27ae60;
-    font-weight: bold;
-    text-align: center;
-    font-size: 1.5em;
-    margin-bottom: 0.5vh;
-    margin-top: 0vh;
+  :hover {
+    background-color: red;
   }
 `;
 
-export const ShopImage = styled.img`
-  height: 210px;
-  width: 210px;
-  border-bottom: ${({ theme }) => theme.borderColor} solid 3px;
-  border-radius: 1vw;
+export const MangaName = styled.Text`
+  font-size: 30px;
+  text-align: center;
 `;
+
+export const MangaImage = styled.Image`
+  width: 30%;
+  height: 100%;
+  align-items: flex-end;
+  align-self: flex-end;
+  align-content: flex-end;
+  justify-content: flex-end;
+`;
+
+// export const ShopImage = styled.img`
+//   height: 210px;
+//   width: 210px;
+//   border-bottom: ${({ theme }) => theme.borderColor} solid 3px;
+//   border-radius: 1vw;
+// `;

@@ -4,7 +4,7 @@ import React from "react";
 import { BackgorundImage, CenterButton } from "./styles";
 import { Button, Text } from "native-base";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <BackgorundImage
       source={{
@@ -15,10 +15,10 @@ const Home = () => {
       <CenterButton>
         <Button
           style={{ padding: "10%", alignSelf: "center" }}
-          onPress={() => alert("Hello")}
+          onPress={() => navigation.navigate("Vendors")}
           light
         >
-          <Text> Light </Text>
+          <Text>Click Here to Skip</Text>
         </Button>
       </CenterButton>
     </BackgorundImage>
