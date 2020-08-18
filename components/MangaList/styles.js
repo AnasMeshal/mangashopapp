@@ -1,11 +1,15 @@
 //Styled components
 import styled from "styled-components";
 
-export const ListWrapper = styled.View`
-  display: flex;
+export const BackgorundImage = styled.ImageBackground`
   width: 100%;
+  height: 100%;
+`;
+
+export const VendorImage = styled.Image`
   justify-content: center;
   align-items: center;
-  text-align: center;
-  margin-top: 20px;
+  align-self: center;
+  width: 80%;
+  height: 100%;
 `;

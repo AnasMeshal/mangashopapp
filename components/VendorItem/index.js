@@ -4,13 +4,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { ItemWrapper, VendorImage, VendorName } from "./styles";
-
 import {
-  Container,
-  Header,
-  Content,
-  List,
   ListItem,
   Thumbnail,
   Text,
@@ -36,7 +30,7 @@ const VendorItem = ({ vendor, navigation }) => {
       <Body>
         <Text>{vendor.name}</Text>
         <Text note numberOfLines={1}>
-          Its time to build a difference . .
+          Its time to see a difference . .
         </Text>
       </Body>
       <Right>
@@ -49,19 +43,6 @@ const VendorItem = ({ vendor, navigation }) => {
         </Button>
       </Right>
     </ListItem>
-
-    // <ListItem
-    //
-    // >
-    //   <VendorImage
-    //     source={{
-    //       uri: vendor.image
-    //         ? vendor.image
-    //         : "https://i.pinimg.com/originals/cc/90/e4/cc90e4029e3d4e063825bae96ea8537f.png",
-    //     }}
-    //   />
-    //   <VendorName>{vendor.name}</VendorName>
-    // </ListItem>
   );
 };
 

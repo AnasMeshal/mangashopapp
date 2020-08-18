@@ -6,6 +6,8 @@ import Home from "../Home";
 import VendorList from "../VendorList";
 import MangaList from "../MangaList";
 import MangaDetail from "../MangaDetail";
+import CartList from "../CartList";
+import CartButton from "../buttons/CartButton";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -16,7 +18,10 @@ const RootNavigator = () => {
       <Screen
         name="Vendors"
         component={VendorList}
-        options={{ title: "Choose a Vendor" }}
+        options={{
+          title: "Choose a Vendor",
+          headerRight: () => <CartButton />,
+        }}
       />
       <Screen
         name="Mangas"
@@ -25,6 +30,7 @@ const RootNavigator = () => {
           const { vendor } = route.params;
           return {
             title: vendor.name,
+            headerRight: () => <CartButton />,
           };
         }}
       />
@@ -35,9 +41,11 @@ const RootNavigator = () => {
           const { manga } = route.params;
           return {
             title: manga.name,
+            headerRight: () => <CartButton />,
           };
         }}
       />
+      <Screen name="Cart" component={CartList} />
     </Navigator>
   );
 };

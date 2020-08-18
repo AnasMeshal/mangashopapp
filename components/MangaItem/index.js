@@ -4,16 +4,7 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { ItemWrapper, MangaName, MangaImage } from "./styles";
-import {
-  Icon,
-  Right,
-  ListItem,
-  Left,
-  Thumbnail,
-  Body,
-  Text,
-} from "native-base";
+import { ListItem, Left, Thumbnail, Body, Text } from "native-base";
 
 const MangaItem = ({ manga, navigation }) => {
   return (
@@ -23,11 +14,13 @@ const MangaItem = ({ manga, navigation }) => {
     >
       <Left>
         <Thumbnail
-          source={{
-            uri: manga.image
-              ? manga.image
-              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Approve_icon.svg/1024px-Approve_icon.svg.png",
-          }}
+          source={
+            manga.image
+              ? {
+                  uri: manga.image,
+                }
+              : require(`../../mangacover.jpg`)
+          }
         />
       </Left>
       <Body>

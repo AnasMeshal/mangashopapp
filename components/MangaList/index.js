@@ -6,13 +6,12 @@ import { observer } from "mobx-react";
 import MangaItem from "../MangaItem";
 
 //Styles
-import { ListWrapper } from "./styles";
-import { Content, List, Spinner } from "native-base";
+import { VendorImage, BackgorundImage } from "./styles";
+import { Content, List, Spinner, Container } from "native-base";
 
 //Stores
 import mangaStore from "../../stores/mangaStore";
 import SearchBar from "../SearchBar";
-import { Text } from "react-native";
 
 const MangaList = ({ route, navigation }) => {
   const { vendor } = route.params;
@@ -34,13 +33,31 @@ const MangaList = ({ route, navigation }) => {
     );
 
   return (
-    <>
-      <Text>{vendor.name}</Text>
+    <BackgorundImage source={require(`../../vendorlist.jpg`)}>
       <SearchBar setQuery={setQuery} />
       <Content>
+        <Container
+          style={{
+            backgroundColor: "transparent",
+            padding: "0%",
+            margin: "0%",
+            width: "100%",
+            maxHeight: "22%",
+          }}
+        >
+          <VendorImage
+            source={
+              vendor.image
+                ? {
+                    uri: vendor.image,
+                  }
+                : require(`../../mangashop.png`)
+            }
+          />
+        </Container>
         <List>{mangaList}</List>
       </Content>
-    </>
+    </BackgorundImage>
   );
 };
 

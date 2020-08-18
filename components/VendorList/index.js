@@ -10,8 +10,8 @@ import VendorItem from "../VendorItem";
 import SearchBar from "../SearchBar";
 
 //Styles
-import { Spinner, Text, List, Content } from "native-base";
-import { ListWrapper, BackgorundImage } from "./styles";
+import { Spinner, List, Content } from "native-base";
+import { BackgorundImage } from "./styles";
 
 const VendorList = ({ navigation }) => {
   const [query, setQuery] = useState("");
@@ -27,13 +27,13 @@ const VendorList = ({ navigation }) => {
   if (vendorStore.loading) return <Spinner />;
 
   return (
-    <>
+    <BackgorundImage source={require(`../../vendorlist.jpg`)}>
       <SearchBar setQuery={setQuery} />
 
       <Content>
         <List>{vendorList}</List>
       </Content>
-    </>
+    </BackgorundImage>
   );
 };
 

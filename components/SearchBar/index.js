@@ -2,14 +2,17 @@
 import React from "react";
 
 //Styles
-import { Search, SearchWrapper } from "./styles";
-import { Input } from "native-base";
+import { Input, Item, Icon, Header } from "native-base";
 
 const SearchBar = ({ setQuery }) => {
   return (
-    <SearchWrapper>
-      <Input placeholder="Search" onChangeText={setQuery} />
-    </SearchWrapper>
+    <Header searchBar rounded transparent>
+      <Item style={{ backgroundColor: "#fff" }}>
+        <Icon name="ios-search" />
+        <Input placeholder="Search" onChangeText={setQuery} />
+        <Icon name="book" />
+      </Item>
+    </Header>
   );
 };
 

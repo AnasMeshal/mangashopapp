@@ -6,7 +6,6 @@ import { ThemeProvider } from "styled-components";
 
 //Components
 import RootNavigator from "./components/Navigation";
-import VendorList from "./components/VendorList";
 
 const theme = {
   lightTheme: {
