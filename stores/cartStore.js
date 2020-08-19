@@ -1,6 +1,6 @@
 //React
 import { decorate, observable, computed } from "mobx";
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-community/async-storage";
 
 class CartStore {
   items = [];
@@ -8,6 +8,11 @@ class CartStore {
   fetchCart = async () => {
     const items = await AsyncStorage.getItem("myCart");
     this.items = items ? JSON.parse(items) : [];
+  };
+
+  checkout = () => {
+    this.items = [];
+    alert("thank you");
   };
 
   addItemToCart = async (newItem) => {

@@ -8,12 +8,14 @@ import MangaList from "../MangaList";
 import MangaDetail from "../MangaDetail";
 import CartList from "../CartList";
 import CartButton from "../buttons/CartButton";
+import Signin from "../authentication/Signin";
+import Signup from "../authentication/Signup";
 
 const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Home">
+    <Navigator initialRouteName="Sign up">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Vendors"
@@ -46,6 +48,16 @@ const RootNavigator = () => {
         }}
       />
       <Screen name="Cart" component={CartList} />
+      <Screen
+        name="Sign in"
+        component={Signin}
+        options={{ headerShown: false }}
+      />
+      <Screen
+        name="Sign up"
+        component={Signup}
+        options={{ headerShown: false }}
+      />
     </Navigator>
   );
 };
