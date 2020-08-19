@@ -3,21 +3,25 @@ import { observer } from "mobx-react";
 import { useNavigation } from "@react-navigation/native";
 
 //Styles
-import { CartButtonStyled } from "./styles";
-import { Text } from "native-base";
+import { CartButtonStyled, CartWrapper } from "./styles";
 import cartStore from "../../stores/cartStore";
+import { Badge, Text, Body } from "native-base";
 
 const CartButton = () => {
   const navigation = useNavigation();
   return (
-    <>
-      <Text>{cartStore.totalQuantity}</Text>
+    <CartWrapper>
+      <Body>
+        <Badge>
+          <Text>{cartStore.totalQuantity}</Text>
+        </Badge>
+      </Body>
       <CartButtonStyled
         type="AntDesign"
         name="shoppingcart"
         onPress={() => navigation.navigate("Cart")}
       />
-    </>
+    </CartWrapper>
   );
 };
 

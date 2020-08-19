@@ -4,19 +4,12 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import {
-  ListItem,
-  Thumbnail,
-  Text,
-  Left,
-  Body,
-  Right,
-  Button,
-} from "native-base";
+import { Thumbnail, Left, Body, Right } from "native-base";
+import { VendorName, VendorDescription, ViewText, ItemList } from "./styles";
 
 const VendorItem = ({ vendor, navigation }) => {
   return (
-    <ListItem thumbnail>
+    <ItemList thumbnail>
       <Left>
         <Thumbnail
           square
@@ -28,21 +21,19 @@ const VendorItem = ({ vendor, navigation }) => {
         />
       </Left>
       <Body>
-        <Text>{vendor.name}</Text>
-        <Text note numberOfLines={1}>
+        <VendorName>{vendor.name}</VendorName>
+        <VendorDescription note numberOfLines={1}>
           Its time to see a difference . .
-        </Text>
+        </VendorDescription>
       </Body>
       <Right>
-        <Button transparent>
-          <Text
-            onPress={() => navigation.navigate("Mangas", { vendor: vendor })}
-          >
-            View
-          </Text>
-        </Button>
+        <ViewText
+          onPress={() => navigation.navigate("Mangas", { vendor: vendor })}
+        >
+          View
+        </ViewText>
       </Right>
-    </ListItem>
+    </ItemList>
   );
 };
 

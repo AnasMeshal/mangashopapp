@@ -1,25 +1,36 @@
 import React from "react";
 import { Text } from "react-native";
-import { ListItem, Body, Right, Icon } from "native-base";
+
+//Styles
+import { Body } from "native-base";
+import {
+  DeleteButtonStyled,
+  ItemList,
+  ItemName,
+  ItemPrice,
+  TotalPrice,
+} from "./styles";
+
+//Stores/
 import cartStore from "../../stores/cartStore";
 
 const CartItem = ({ item }) => {
   return (
-    <ListItem>
+    <ItemList>
       <Body>
-        <Text>{item.name}</Text>
-        <Text>
+        <ItemName>{item.name}</ItemName>
+        <ItemPrice>
           {item.price} KD X {item.qty}
-        </Text>
-        <Text>Total Price: {item.price * item.qty} KD</Text>
+        </ItemPrice>
+        <TotalPrice>Total Price: {item.price * item.qty} KD</TotalPrice>
       </Body>
 
-      <Icon
+      <DeleteButtonStyled
         type="Feather"
         name="delete"
         onPress={() => cartStore.deleteItem(item.id)}
       />
-    </ListItem>
+    </ItemList>
   );
 };
 

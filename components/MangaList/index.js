@@ -6,8 +6,8 @@ import { observer } from "mobx-react";
 import MangaItem from "../MangaItem";
 
 //Styles
-import { VendorImage, BackgorundImage } from "./styles";
-import { Content, List, Spinner, Container } from "native-base";
+import { StyledThumbnail, BackgorundImage } from "./styles";
+import { Content, List, Spinner } from "native-base";
 
 //Stores
 import mangaStore from "../../stores/mangaStore";
@@ -35,26 +35,20 @@ const MangaList = ({ route, navigation }) => {
   return (
     <BackgorundImage source={require(`../../vendorlist.jpg`)}>
       <SearchBar setQuery={setQuery} />
+
       <Content>
-        <Container
-          style={{
-            backgroundColor: "transparent",
-            padding: "0%",
-            margin: "0%",
-            width: "100%",
-            maxHeight: "22%",
-          }}
-        >
-          <VendorImage
-            source={
-              vendor.image
-                ? {
-                    uri: vendor.image,
-                  }
-                : require(`../../mangashop.png`)
-            }
-          />
-        </Container>
+        <StyledThumbnail
+          square
+          large
+          source={
+            vendor.image
+              ? {
+                  uri: vendor.image,
+                }
+              : require(`../../mangashop.png`)
+          }
+        />
+
         <List>{mangaList}</List>
       </Content>
     </BackgorundImage>

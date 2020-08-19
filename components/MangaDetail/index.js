@@ -9,8 +9,9 @@ import {
   MangaDescription,
   MangaPrice,
   MangaAuthor,
+  StyledButton,
 } from "./styles";
-import { Body, Button, Text } from "native-base";
+import { Body, Text } from "native-base";
 import cartStore from "../../stores/cartStore";
 
 const MangaDetail = ({ route }) => {
@@ -24,7 +25,7 @@ const MangaDetail = ({ route }) => {
   };
 
   return (
-    <BackgorundImage source={require(`../../vendorlist.jpg`)}>
+    <BackgorundImage source={require(`../../solidBlack.jpg`)}>
       <MangaImage
         source={
           manga.image
@@ -39,11 +40,18 @@ const MangaDetail = ({ route }) => {
       <MangaPrice>{manga.price} Kd</MangaPrice>
       <MangaAuthor>author: {manga.author}</MangaAuthor>
       <Body>
-        <NumericInput initValue={1} rounded onChange={setQty} value={qty} />
+        <NumericInput
+          textColor="#fff"
+          initValue={1}
+          rounded
+          minValue="1"
+          onChange={setQty}
+          value={qty}
+        />
+        <StyledButton onPress={handleAdd}>
+          <Text>Add</Text>
+        </StyledButton>
       </Body>
-      <Button onPress={handleAdd}>
-        <Text>Add</Text>
-      </Button>
     </BackgorundImage>
   );
 };

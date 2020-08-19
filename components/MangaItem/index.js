@@ -4,11 +4,12 @@ import React from "react";
 import { observer } from "mobx-react";
 
 //Styles
-import { ListItem, Left, Thumbnail, Body, Text } from "native-base";
+import { Left, Thumbnail, Body, Text } from "native-base";
+import { ItemList, MangaName, MangaDescription } from "./styles";
 
 const MangaItem = ({ manga, navigation }) => {
   return (
-    <ListItem
+    <ItemList
       avatar
       onPress={() => navigation.navigate("MangaDetail", { manga: manga })}
     >
@@ -24,10 +25,12 @@ const MangaItem = ({ manga, navigation }) => {
         />
       </Left>
       <Body>
-        <Text>{manga.name}</Text>
-        <Text note>Doing what you like will always keep you happy . .</Text>
+        <MangaName>{manga.name}</MangaName>
+        <MangaDescription note>
+          Doing what you like will always keep you happy . .
+        </MangaDescription>
       </Body>
-    </ListItem>
+    </ItemList>
   );
 };
 

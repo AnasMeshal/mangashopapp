@@ -1,4 +1,5 @@
 import React from "react";
+import { observer } from "mobx-react";
 
 //Components
 import CartItem from "../CartItem";
@@ -8,8 +9,8 @@ import cartStore from "../../stores/cartStore";
 import mangaStore from "../../stores/mangaStore";
 
 //Styles
-import { List, Spinner } from "native-base";
-import { observer } from "mobx-react";
+import { List, Spinner, Content } from "native-base";
+import { BackgorundImage } from "./styles";
 
 const CartList = () => {
   if (mangaStore.loading) return <Spinner />;
@@ -18,9 +19,15 @@ const CartList = () => {
       ...mangaStore.getItemById(item.mangaId),
       qty: item.qty,
     }))
-    .map((item) => <CartItem item={item} key={item.name} />);
+    .map((item) => <CartItem item={item} key={item.id} />);
 
-  return <List>{cartList}</List>;
+  return (
+    <BackgorundImage source={require(`../../vendorlist.jpg`)}>
+      <Content>
+        <List>{cartList}</List>
+      </Content>
+    </BackgorundImage>
+  );
 };
 
 export default observer(CartList);

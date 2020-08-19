@@ -1,5 +1,6 @@
 //Styled components
 import styled from "styled-components";
+import { Button } from "native-base";
 
 export const BackgorundImage = styled.ImageBackground`
   width: 100%;
@@ -8,7 +9,7 @@ export const BackgorundImage = styled.ImageBackground`
 
 export const MangaImage = styled.Image`
   width: 80%;
-  height: 50%;
+  height: 40%;
   align-self: center;
   margin-top: 10%;
 `;
@@ -16,7 +17,7 @@ export const MangaImage = styled.Image`
 export const MangaName = styled.Text`
   font-size: 40px;
   text-align: center;
-  color: #222f3e;
+  color: #fff;
   padding-right: 5px;
   padding-left: 5px;
 `;
@@ -24,7 +25,7 @@ export const MangaName = styled.Text`
 export const MangaDescription = styled.Text`
   font-size: 25px;
   text-align: center;
-  color: #576574;
+  color: #dae0e2;
   padding-right: 5px;
   padding-left: 5px;
 `;
@@ -40,7 +41,13 @@ export const MangaPrice = styled.Text`
 export const MangaAuthor = styled.Text`
   font-size: 25px;
   text-align: center;
-  color: #222f3e;
+  color: #dae0e2;
   padding-right: 5px;
   padding-left: 5px;
+  margin-bottom: 10px;
+`;
+
+export const StyledButton = styled(Button)`
+  margin-top: 10px;
+  align-self: center;
 `;
