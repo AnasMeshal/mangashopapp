@@ -42,10 +42,10 @@ const Signin = ({ navigation }) => {
           />
         </Item>
       </FormStyled>
-      <SignUpButtonStyled block>
+      <SignUpButtonStyled onPress={handleSubmit} block>
         <Text>Sign in</Text>
       </SignUpButtonStyled>
-      <CreateNewAccountStyled onPress={handleSubmit} primary>
+      <CreateNewAccountStyled primary>
         <Text onPress={() => navigation.navigate("Sign up")}>
           create a new account
         </Text>

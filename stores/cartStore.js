@@ -1,24 +1,26 @@
 //React
 import { decorate, observable, computed } from "mobx";
+import instance from "./instance";
 import AsyncStorage from "@react-native-community/async-storage";
 
 class CartStore {
   items = [];
 
-  fetchCart = async () => {
-    const items = await AsyncStorage.getItem("myCart");
-    this.items = items ? JSON.parse(items) : [];
-  };
-
   checkout = async () => {
     try {
+      console.log(this.items);
       const res = await instance.post("/checkout", this.items);
       this.items = [];
       await AsyncStorage.removeItem("myCart");
-      alert("Thank you");
+      alert("Thank You for Purchasing With Us!");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  fetchCart = async () => {
+    const items = await AsyncStorage.getItem("myCart");
+    this.items = items ? JSON.parse(items) : [];
   };
 
   addItemToCart = async (newItem) => {
@@ -31,16 +33,16 @@ class CartStore {
     await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
   };
 
+  deleteItem = async (itemId) => {
+    this.items = this.items.filter((_item) => _item.mangaId !== itemId);
+    await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
+  };
+
   get totalQuantity() {
     let total = 0;
     this.items.forEach((item) => (total += item.qty));
     return total;
   }
-
-  deleteItem = async (itemId) => {
-    this.items = this.items.filter((_item) => _item.mangaId !== itemId);
-    await AsyncStorage.setItem("myCart", JSON.stringify(this.items));
-  };
 }
 
 decorate(CartStore, {

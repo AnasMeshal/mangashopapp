@@ -22,8 +22,8 @@ const Signup = ({ navigation }) => {
     password: "",
   });
 
-  const handleSubmit = () => {
-    authStore.signup(user);
+  const handleSubmit = async () => {
+    await authStore.signup(user);
     if (authStore.user) navigation.replace("Home");
   };
 

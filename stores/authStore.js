@@ -18,7 +18,7 @@ class AuthStore {
   signup = async (userData) => {
     try {
       const res = await instance.post("/signup", userData);
-      this.setUser(res.data.token);
+      await this.setUser(res.data.token);
       console.log(res.data.token);
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ class AuthStore {
   signin = async (userData) => {
     try {
       const res = await instance.post("/signin", userData);
-      this.setUser(res.data.token);
+      await this.setUser(res.data.token);
       console.log(res.data.token);
     } catch (error) {
       console.log(error);
@@ -39,6 +39,7 @@ class AuthStore {
     delete instance.defaults.headers.common.Authorization;
     await AsyncStorage.removeItem("myToken");
     this.user = null;
+    console.log("im signout method");
   };
 
   checkForToken = async () => {
@@ -60,4 +61,6 @@ decorate(AuthStore, {
 
 const authStore = new AuthStore();
 authStore.checkForToken();
+// authStore.signout();
+
 export default authStore;

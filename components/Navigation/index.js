@@ -15,7 +15,7 @@ const { Navigator, Screen } = createStackNavigator();
 
 const RootNavigator = () => {
   return (
-    <Navigator initialRouteName="Sign up">
+    <Navigator initialRouteName="Home">
       <Screen name="Home" component={Home} options={{ headerShown: false }} />
       <Screen
         name="Vendors"
@@ -49,12 +49,12 @@ const RootNavigator = () => {
       />
       <Screen name="Cart" component={CartList} />
       <Screen
-        name="Sign in"
+        name="Signin"
         component={Signin}
         options={{ headerShown: false }}
       />
       <Screen
-        name="Sign up"
+        name="Signup"
         component={Signup}
         options={{ headerShown: false }}
       />
