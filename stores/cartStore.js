@@ -10,9 +10,15 @@ class CartStore {
     this.items = items ? JSON.parse(items) : [];
   };
 
-  checkout = () => {
-    this.items = [];
-    alert("thank you");
+  checkout = async () => {
+    try {
+      const res = await instance.post("/checkout", this.items);
+      this.items = [];
+      await AsyncStorage.removeItem("myCart");
+      alert("Thank you");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   addItemToCart = async (newItem) => {
