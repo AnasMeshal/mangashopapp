@@ -23,9 +23,11 @@ const CartList = ({ navigation }) => {
     }))
     .map((item) => <CartItem item={item} key={item.id} />);
 
-  const handleCheckout = () => {
-    if (authStore.user) cartStore.checkout();
-    else {
+  const handleCheckout = async () => {
+    if (authStore.user) {
+      await cartStore.checkout();
+      navigation.navigate("Home");
+    } else {
       Alert.alert(
         "Signin",
         "You need to sign in before completing your order",
